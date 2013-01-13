@@ -32,16 +32,20 @@ if ($opt{distro}) {
                     { prefix => { distribution => $opt{distro} } },
                     { term   => { status => 'latest' } },
             ]},
-            fields => [ 'distribution', 'date' ],
+            fields => [ 'distribution', 'date', 'version' ],
             size => $opt{size},
         },
     );
     #print Dumper $r;
     if ($opt{html}) {
-        my $html = join "\n", map { sprintf(q{<li><a href="http://metacpan.org/release/%s">%s</a></li>}, $_, $_) } map { $_->{fields}{distribution} } @{ $r->{hits}{hits} };
+        my $html = join "\n",
+            map { sprintf(q{<li><a href="http://metacpan.org/release/%s">%s</a></li>}, $_, $_) }
+            map { $_->{fields}{distribution} }
+            @{ $r->{hits}{hits} };
         print "<ul>\n$html\n</ul>\n";
     } else {
         print Dumper [map {$_->{fields}} @{ $r->{hits}{hits} }];
+        print "Count " . scalar(@{ $r->{hits}{hits} }) . "\n";
     }
 }
 
