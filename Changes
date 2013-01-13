@@ -1,4 +1,6 @@
+0.02 2013.01.13
+    Add bin/metacpan_namespace.pl script.
 
 0.01 2013.01.08
-    First version
+    First version with bin/metacpan_meta.pl script.
 
