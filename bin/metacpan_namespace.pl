@@ -9,13 +9,13 @@ use MetaCPAN::API;
 my $mcpan = MetaCPAN::API->new;
 
 my %opt = (size => 2);
-GetOptions(\%opt, 'module=s', 'distro=s', 'size=i') or usage();
+GetOptions(\%opt, 'module=s', 'distro=s', 'size=i', 'html') or usage();
 usage() if not ($opt{module} xor $opt{distro});
 
 sub usage {
     die <<"END_USAGE";
 Usage: $0 --module Module::Name [--size LIMIT]
-    or $0 --distro Distro-Name [--size LIMIT]
+    or $0 --distro Distro-Name [--size LIMIT] [--html]
 
     LIMIT defaults to 2
 END_USAGE
@@ -37,7 +37,12 @@ if ($opt{distro}) {
         },
     );
     #print Dumper $r;
-    print Dumper [map {$_->{fields}} @{ $r->{hits}{hits} }];
+    if ($opt{html}) {
+        my $html = join "\n", map { sprintf(q{<li><a href="http://metacpan.org/release/%s">%s</a></li>}, $_, $_) } map { $_->{fields}{distribution} } @{ $r->{hits}{hits} };
+        print "<ul>\n$html\n</ul>\n";
+    } else {
+        print Dumper [map {$_->{fields}} @{ $r->{hits}{hits} }];
+    }
 }
 
 # List all the modules under a name::space (with a given prefix)
