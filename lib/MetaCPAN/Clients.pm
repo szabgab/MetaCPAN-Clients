@@ -17,6 +17,9 @@ For an explanation of the metacpan_meta.pl script see L<Fetching META data from 
 For the metacpan_namespace.pl see
 L<List all the Perl modules and distributions in a name-space using Meta CPAN|http://perl5maven.com/list-all-the-perl-modules-and-distributions-in-a-namespace-using-meta-cpan>.
 
+The metacpan_reverse_dependencies.pl show the list of distributions that use the given distribution.
+Code taken from L<Test::DependentModules> of Dave Rolsky.
+
 =head1 RESULTS
 
 Some results using these scripts show:
@@ -26,6 +29,12 @@ L<50% of the new CPAN uploads have a repository link|http://blogs.perl.org/users
 
 On december 28, 2012 we found that
 L<17.4% of CPAN uploads have no license in the META files|http://blogs.perl.org/users/gabor_szabo/2012/12/174-of-cpan-uploads-have-no-license-in-the-meta-files.html>
+
+=head1 OTHER Examples
+
+If you are interested in other examples using the L<MetaCPAN::API>, check out the
+L<list of distributions using MetaCPAN::API|https://metacpan.org/requires/distribution/MetaCPAN-API>
+
 
 =head1 AUTHOR
 
