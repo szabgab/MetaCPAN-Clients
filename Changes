@@ -1,5 +1,6 @@
 0.03
     Add bin/metacpan_reverse_dependencies.pl
+    Add bin/metacpan_impact.pl
     Add more text to the POD
 
 0.02 2013.01.13

@@ -4,38 +4,35 @@ use warnings;
 use 5.010;
 
 use Data::Dumper;
+use Getopt::Long   qw(GetOptions);
 use MetaCPAN::API;
-use Try::Tiny;
+
+my %opt = (depth => 2);
+GetOptions(\%opt, 'distro=s', 'depth=i') or usage();
+usage() if not $opt{distro};
 
 $| = 1;
 
 my %data;
+my %tree;
 
-my $distribution_name = shift or die "Usage: $0 Distribution-Name\n";
-
-# Given a distribution (or a module), we would like to get the list of distributions,
+# Given a distribution, we would like to get the list of distributions,
 # that are using it. (directly or indirectly)
 
 my $mcpan = MetaCPAN::API->new;
 
 # make sure we have a real distribution name
-# my $r = $mcpan->release( distribution => $distribution_name);
+# my $r = $mcpan->release( distribution => $opt{distro});
 # print Dumper $r;
 
 # Given a distribution fetch the list of modules it provides and save them in data
-{
-    my @modules = get_modules_provided_by_distribution($distribution_name);
-    if (not @modules) {
-        die "DONE?\n";
-    }
-   # Given a list of modules save them in data
-    # TODO
+# return the number of modules fetched
+my $modules_count = get_modules_provided_by_distribution($opt{distro});
+if (not $modules_count) {
+    die "There were no modules in this distribution\n";
 }
 
-
-my $DEPTH = 10;
-for my $depth (1 .. $DEPTH) {
-
+for my $depth (1 .. $opt{depth}) {
     # for each module in data, that has not been processed yet
     my @modules = grep { not $data{module}{$_} } keys %{ $data{module} };
     foreach my $m (@modules) {
@@ -46,6 +43,7 @@ for my $depth (1 .. $DEPTH) {
     }
 }
 print Dumper \%data;
+exit;
 
 
 # Give a distribution, list all the files in it and then extract the modules
@@ -68,7 +66,7 @@ sub get_modules_provided_by_distribution {
         $data{module}{$m} = undef;
     }
 
-    return @modules;
+    return scalar @modules;
 }
 
 sub get_users_of_module {
@@ -117,4 +115,9 @@ sub get_dependencies {
     return map { $_->{module} }
         grep { $phases{ $_->{phase} } }
         @{ $r->{dependency} };
+}
+
+sub usage {
+    print "Usage: $0 --distro Distribution-Name  [--depth N=10]\n";
+    exit;
 }
