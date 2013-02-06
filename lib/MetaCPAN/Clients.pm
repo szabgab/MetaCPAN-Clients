@@ -4,11 +4,19 @@ use warnings;
 
 =head1 NAME
 
-MetaCPAN::Clients - Some useful stand-alone scripts to access MetaCPAN
+MetaCPAN::Clients - Some useful stand-alone scripts to access L<MetaCPAN|http://metacpan.org/>
 
 =head1 SYNOPSIS
 
-Just read the articles and check out L<MetaCPAN::API>.
+Command-line tools:
+
+ metacpan_meta N [PAUSEID]
+ metacpan_namespace --module Module::Name
+ metacpan_namespace --distro Distro-Name  (or partial name)
+ metacpan_impact --distro Distribution-Name
+ metacpan_reverse_dependencies --distro Distro-Name
+
+... or read the articles and check out L<MetaCPAN::API>.
 
 =head1 DESCRIPTION
 
@@ -24,17 +32,19 @@ Code taken from L<Test::DependentModules> of Dave Rolsky.
 
 Some results using these scripts show:
 
-On January 3 2013 we found that
+On December 28, 2012 we found that
+L<17.4% of CPAN uploads have no license in the META files|http://blogs.perl.org/users/gabor_szabo/2012/12/174-of-cpan-uploads-have-no-license-in-the-meta-files.html>
+
+On January 3, 2013 we found that
 L<50% of the new CPAN uploads have a repository link|http://blogs.perl.org/users/gabor_szabo/2013/01/50-of-the-new-cpan-uploads-lack-a-repository-link.html>
 
-On december 28, 2012 we found that
-L<17.4% of CPAN uploads have no license in the META files|http://blogs.perl.org/users/gabor_szabo/2012/12/174-of-cpan-uploads-have-no-license-in-the-meta-files.html>
+On February 5, 2013 we found that still about 16.6% of the L<recent CPAN uploads|http://szabgab.com/license-and-repository-of-cpan-packages-201302.html>
+have no license and 50% no repository link in their META files.
 
 =head1 OTHER Examples
 
 If you are interested in other examples using the L<MetaCPAN::API>, check out the
 L<list of distributions using MetaCPAN::API|https://metacpan.org/requires/distribution/MetaCPAN-API>
-
 
 =head1 AUTHOR
 
