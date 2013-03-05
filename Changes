@@ -1,7 +1,8 @@
-0.03
+0.03 2013.03.05
     Add bin/metacpan_reverse_dependencies.pl
     Add bin/metacpan_impact.pl
     Add more text to the POD
+    Add some more META information
 
 0.02 2013.01.13
     Add bin/metacpan_namespace.pl script.
