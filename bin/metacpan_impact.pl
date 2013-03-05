@@ -84,14 +84,14 @@ sub get_users_of_module {
     my @distributions = sort {lc $a cmp lc $b} map { $_->{fields}{distribution} } @{ $r->{hits}{hits} };
     foreach my $d (@distributions) {
         print "Found distro: $d\n";
-        
+
         # use only those, that use the module in an 'important' phase
         my @dependencies = get_dependencies($d);
         if (not grep {$module_name eq $_} @dependencies) {
             print "     ... skipping (not a hard dependency)\n";
             next;
         }
-        
+
         if (not $data{distribution}{$d}) {
             get_modules_provided_by_distribution($d);
             $data{distribution}{$d} = {};
@@ -103,7 +103,7 @@ sub get_users_of_module {
 
 sub get_dependencies {
     my ($distro_name) = @_;
-    
+
     my $r = $mcpan->fetch( "release/$distro_name" );
     # list of phases I found. We only take in account some of them
     my %phases = (
