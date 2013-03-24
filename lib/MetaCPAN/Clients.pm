@@ -15,6 +15,7 @@ Command-line tools:
  metacpan_namespace --distro Distro-Name  (or partial name)
  metacpan_impact --distro Distribution-Name
  metacpan_reverse_dependencies --distro Distro-Name
+ metacpan_favorite.pl <token> <file>
 
 ... or read the articles and check out L<MetaCPAN::API>.
 
@@ -27,6 +28,12 @@ L<List all the Perl modules and distributions in a name-space using Meta CPAN|ht
 
 The metacpan_reverse_dependencies.pl show the list of distributions that use the given distribution.
 Code taken from L<Test::DependentModules> of Dave Rolsky.
+
+The metacpan_favorite.pl was created by David Golden and it is explained in
+L<How to mass-favorite modules on MetaCPAN|http://www.dagolden.com/index.php/2040/how-to-mass-favorite-modules-on-metacpan/>
+
+The token is taken from L<https://api.metacpan.org/user> (assuming you are logged in) from the key B<access_token>,
+B<token>. The input file contains lines of  "Distro-Name AUTHOR release" but it can work with "Distro-Name" alone too.
 
 =head1 RESULTS
 
@@ -49,6 +56,10 @@ L<list of distributions using MetaCPAN::API|https://metacpan.org/requires/distri
 =head1 AUTHOR
 
 L<Gabor Szabo|http://szabgab.com/>
+
+=head1 CONTRIBUTORS
+
+L<David Golden|http://www.dagolden.com/>
 
 =head1 COPYRIGHT AND LICENSE
 

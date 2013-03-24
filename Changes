@@ -1,3 +1,7 @@
+0.04
+    Add bin/metacpan_favorite.pl
+
+
 0.03 2013.03.05
     Add bin/metacpan_reverse_dependencies.pl
     Add bin/metacpan_impact.pl
