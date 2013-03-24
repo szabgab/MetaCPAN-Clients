@@ -10,11 +10,11 @@ MetaCPAN::Clients - Some useful stand-alone scripts to access L<MetaCPAN|http://
 
 Command-line tools:
 
- metacpan_meta N [PAUSEID]
- metacpan_namespace --module Module::Name
- metacpan_namespace --distro Distro-Name  (or partial name)
- metacpan_impact --distro Distribution-Name
- metacpan_reverse_dependencies --distro Distro-Name
+ metacpan_meta.pl N [PAUSEID]
+ metacpan_namespace.pl --module Module::Name
+ metacpan_namespace.pl --distro Distro-Name  (or partial name)
+ metacpan_impact.pl --distro Distribution-Name
+ metacpan_reverse_dependencies.pl --distro Distro-Name
  metacpan_favorite.pl <token> <file>
 
 ... or read the articles and check out L<MetaCPAN::API>.
