@@ -22,8 +22,26 @@ my $r = $mcpan->fetch( 'release/_search',
     size => $size,
 );
 
+# In preparation to have a list of acceptable
+# password keys. (Is this really important for the
+# purposes of this script?)
 my @acceptable_licenses = qw(
+    agpl_3
+    apache_2_0
+    artistic_1
+    artistic_2
+    bsd
+    gpl_3
+    lgpl_2_1
+    mit
+    perl_5
+
+    restricted
+    unrestricted
 );
+
+#    freebsd
+#    zlib
 
 my %licenses;
 my @missing_license;
