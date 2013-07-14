@@ -22,6 +22,9 @@ my $r = $mcpan->fetch( 'release/_search',
     size => $size,
 );
 
+my @acceptable_licenses = qw(
+);
+
 my %licenses;
 my @missing_license;
 my @missing_repo;
@@ -34,7 +37,7 @@ foreach my $d (@{ $r->{hits}{hits} }) {
     my $author  = $d->{fields}{author};
     my $repo    = $d->{fields}{'resources.repository'};
 
-    if ($license and $license ne 'unknown') {
+    if ($license and $license ne 'unknown' and $license ne 'open_source') {
         $found++;
         $licenses{$license}++;
     } else {
