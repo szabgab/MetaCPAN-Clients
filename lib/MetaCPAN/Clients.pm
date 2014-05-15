@@ -16,17 +16,20 @@ Command-line tools:
  metacpan_impact.pl --distro Distribution-Name
  metacpan_reverse_dependencies.pl --distro Distro-Name
  metacpan_favorite.pl <token> <file>
+ metacpan_old.pl
+ metacpan_full_dependency_list.pl  Module::Name [more Module::Names]
+ metacpan_dependency_tree.pl Module::Name
 
 ... or read the articles and check out L<MetaCPAN::API>.
 
 =head1 DESCRIPTION
 
-For an explanation of the metacpan_meta.pl script see L<Fetching META data from Meta CPAN|http://perlmaven.com/fetching-meta-data-from-meta-cpan>.
+For an explanation of the L<metacpan_meta.pl> script see L<Fetching META data from Meta CPAN|http://perlmaven.com/fetching-meta-data-from-meta-cpan>.
 
-For the metacpan_namespace.pl see
+For the L<metacpan_namespace.pl> see
 L<List all the Perl modules and distributions in a name-space using Meta CPAN|http://perlmaven.com/list-all-the-perl-modules-and-distributions-in-a-namespace-using-meta-cpan>.
 
-The metacpan_reverse_dependencies.pl show the list of distributions that use the given distribution.
+The L<metacpan_reverse_dependencies.pl> show the list of distributions that use the given distribution.
 Code taken from L<Test::DependentModules> of Dave Rolsky.
 
 The metacpan_favorite.pl was created by David Golden and it is explained in
@@ -34,6 +37,10 @@ L<How to mass-favorite modules on MetaCPAN|http://www.dagolden.com/index.php/204
 
 The token is taken from L<https://api.metacpan.org/user> (assuming you are logged in) from the key B<access_token>,
 B<token>. The input file contains lines of  "Distro-Name AUTHOR release" but it can work with "Distro-Name" alone too.
+
+
+L<metacpan_dependency_tree.pl> was originally described in L<How to fetch the CPAN dependency
+tree of a Perl module?|http://perlmaven.com/how-to-fetch-the-cpan-dependency-tree-of-a-perl-module>
 
 =head1 RESULTS
 
@@ -63,7 +70,7 @@ L<David Golden|http://www.dagolden.com/>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Gabor Szabo.
+This software is copyright (c) 2013- by Gabor Szabo.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

@@ -2,12 +2,16 @@
 use strict;
 use warnings;
 
-# based on example supplied by Moritz Onken
+=head1 DESCRIPTION
 
-# Fetching distribution in a specific time range that are still on CPAN (and not only on Backpan)
-#
-# The idea was to fetch old distributions and check if they can still compile and work on a modern version of Perl?
-# It is especially interesting if the module have new versions as well - if a module is maintained.
+Based on example supplied by Moritz Onken.
+
+Fetching distribution in a specific time range that are still on CPAN (and not only on Backpan)
+
+The idea was to fetch old distributions and check if they can still compile and work on a modern version of Perl?
+It is especially interesting if the module have new versions as well - if a module is maintained.
+
+=cut
 
 use LWP::UserAgent;
 use JSON qw(from_json);
