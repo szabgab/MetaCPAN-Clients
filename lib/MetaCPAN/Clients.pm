@@ -21,10 +21,10 @@ Command-line tools:
 
 =head1 DESCRIPTION
 
-For an explanation of the metacpan_meta.pl script see L<Fetching META data from Meta CPAN|http://perl5maven.com/fetching-meta-data-from-meta-cpan>.
+For an explanation of the metacpan_meta.pl script see L<Fetching META data from Meta CPAN|http://perlmaven.com/fetching-meta-data-from-meta-cpan>.
 
 For the metacpan_namespace.pl see
-L<List all the Perl modules and distributions in a name-space using Meta CPAN|http://perl5maven.com/list-all-the-perl-modules-and-distributions-in-a-namespace-using-meta-cpan>.
+L<List all the Perl modules and distributions in a name-space using Meta CPAN|http://perlmaven.com/list-all-the-perl-modules-and-distributions-in-a-namespace-using-meta-cpan>.
 
 The metacpan_reverse_dependencies.pl show the list of distributions that use the given distribution.
 Code taken from L<Test::DependentModules> of Dave Rolsky.
