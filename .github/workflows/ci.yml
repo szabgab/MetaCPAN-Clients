@@ -30,6 +30,7 @@ jobs:
 
     - name: Regular tests
       run: |
+        cpanm --notest Dist::Zilla
         dzil authordeps --missing | cpanm --notest
         dzil listdeps --author --missing | cpanm --notest
         dzil test --author --release
