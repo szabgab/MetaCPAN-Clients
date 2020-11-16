@@ -1,2 +1,3 @@
 *.swp
 MetaCPAN-Client*
+.build
