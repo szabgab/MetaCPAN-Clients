@@ -28,11 +28,9 @@ jobs:
           perl-version: ${{ matrix.perl }}
           distribution: strawberry
 
-    steps:
-      - uses: actions/checkout@v2
-      - name: Regular tests
-        run: |
-          dzil authordeps --missing | cpanm --notest
-          dzil listdeps --author --missing | cpanm --notest
-          dzil test --author --release
+    - name: Regular tests
+      run: |
+        dzil authordeps --missing | cpanm --notest
+        dzil listdeps --author --missing | cpanm --notest
+        dzil test --author --release
 
