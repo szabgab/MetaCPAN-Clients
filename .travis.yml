@@ -4,5 +4,12 @@ branches:
 language: perl
 perl:
   - "5.30"
+install: echo skip
+script:
+  - perl -v
+  - cpanm --notest Dist::Zilla
+  - dzil authordeps --missing | cpanm --notest
+  - dzil listdeps --author --missing | cpanm --notest
+  - dzil test --author --release
 after_failure:
   - cat /home/travis/.cpanm/work/*/build.log
