@@ -1,11 +1,11 @@
 name: CI
 
 on:
-    push:
-    pull_request:
+  push:
+  pull_request:
   workflow_dispatch:
-    schedule:
-        - cron: '42 5 * * 0'
+  schedule:
+      - cron: '42 5 * * 0'
 
 jobs:
   test:
